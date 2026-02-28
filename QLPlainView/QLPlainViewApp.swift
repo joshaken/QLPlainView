@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct QLPlainViewApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        //        WindowGroup {
+        //            ContentView()
+        //        }
+        Settings {
+            EmptyView()
         }
     }
 }

@@ -1,0 +1,40 @@
+# Xcode
+*.xcuserstate
+xcuserdata/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+build/
+DerivedData/
+*.build/
+*.xcarchive
+.build/
+.swiftpm/
+timeline.xctimeline
+playground.xcworkspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Distribution
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+Package.resolved
+
+# Signing
+*.mobileprovision
+*.p12
+ExportOptions.plist
