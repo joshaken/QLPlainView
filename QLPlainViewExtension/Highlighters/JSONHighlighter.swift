@@ -1,5 +1,5 @@
 //
-//  Logger+File.swift
+//  JSONHighlighter.swift
 //  QLPlainViewExtension
 //
 //  Created by neo on 3/1/26.
