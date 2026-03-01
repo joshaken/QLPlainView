@@ -29,12 +29,6 @@ A macOS QuickLook extension that enables instant preview of plain text files, YA
 
 ## Installation
 
-### From App Store (when available)
-
-1. Open `QLPlainView.app`
-2. The extension is registered automatically
-3. Select any supported file in Finder and press **Space**
-
 ### From Source
 
 1. Clone the repository
@@ -75,28 +69,6 @@ qlmanage -r
 - Modelfile files
 - Dockerfile, Makefile, Podfile, Gemfile (no extension)
 - Any other readable text file
-
----
-
-## Build from Source
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd QLPlainView
-
-# Open in Xcode
-open QLPlainView.xcodeproj
-
-# Build
-# Press Shift+Cmd+B, or select Product > Build
-
-# Enable extension
-pluginkit -e use -i com.joshaken.QLPlainView.QLPlainViewExtension
-
-# Clear QuickLook cache
-qlmanage -r
-```
 
 ---
 
