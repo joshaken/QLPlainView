@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5EE0D9A2F532D6C0007272D"
+               BlueprintIdentifier = "A9000001"
                BuildableName = "QLPlainView.app"
                BlueprintName = "QLPlainView"
                ReferencedContainer = "container:QLPlainView.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5EE0D9A2F532D6C0007272D"
+            BlueprintIdentifier = "A9000001"
             BuildableName = "QLPlainView.app"
             BlueprintName = "QLPlainView"
             ReferencedContainer = "container:QLPlainView.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5EE0D9A2F532D6C0007272D"
+            BlueprintIdentifier = "A9000001"
             BuildableName = "QLPlainView.app"
             BlueprintName = "QLPlainView"
             ReferencedContainer = "container:QLPlainView.xcodeproj">

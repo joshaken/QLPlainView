@@ -7,35 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5EE0D9F2F532D6C0007272D /* QLPlainViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE0D9E2F532D6C0007272D /* QLPlainViewApp.swift */; };
-		B5EE0DA12F532D6C0007272D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE0DA02F532D6C0007272D /* ContentView.swift */; };
-		B5EE0DA32F532D6D0007272D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EE0DA22F532D6D0007272D /* Assets.xcassets */; };
-		B5EE0DA62F532D6D0007272D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EE0DA52F532D6D0007272D /* Preview Assets.xcassets */; };
-		B5EE0DB42F532DB90007272D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5EE0DB32F532DB90007272D /* Quartz.framework */; };
-		B5EE0DB72F532DB90007272D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE0DB62F532DB90007272D /* PreviewViewController.swift */; };
-		B5EE0DB92F532DB90007272D /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE0DB82F532DB90007272D /* PreviewProvider.swift */; };
-		B5EE0DBC2F532DB90007272D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B5EE0DBB2F532DB90007272D /* Base */; };
-		B5EE0DC12F532DB90007272D /* QLPlainViewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B5EE0DB12F532DB90007272D /* QLPlainViewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1000001 /* QLPlainViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001 /* QLPlainViewApp.swift */; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000002 /* ContentView.swift */; };
+		A1000003 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000003 /* SettingsView.swift */; };
+		A1000004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000004 /* Assets.xcassets */; };
+		A1000005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000005 /* Preview Assets.xcassets */; };
+		A1000006 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000006 /* PreviewViewController.swift */; };
+		A1000007 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000007 /* PreviewProvider.swift */; };
+		A1000009 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000009 /* FileType.swift */; };
+		A100000A /* YAMLHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000A /* YAMLHighlighter.swift */; };
+		A100000B /* LuaHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000B /* LuaHighlighter.swift */; };
+		A100000C /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000C /* String+Attributed.swift */; };
+		A100000D /* String+BinaryDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000D /* String+BinaryDetection.swift */; };
+		A100000E /* Logger+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000E /* Logger+File.swift */; };
+		A100000F /* PreviewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000F /* PreviewContentView.swift */; };
+		A1000010 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2000010 /* Quartz.framework */; };
+		A1000011 /* QLPlainViewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3000002 /* QLPlainViewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B51BAB3B2F5456BA0028CBA7 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51BAB392F5456BA0028CBA7 /* PreviewViewController.xib */; };
+		B51BAB3D2F545EE50028CBA7 /* JSONHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB3C2F545EE50028CBA7 /* JSONHighlighter.swift */; };
+		B51BAB3F2F545F0F0028CBA7 /* XMLHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB3E2F545F0F0028CBA7 /* XMLHighlighter.swift */; };
+		B51BAB452F546E360028CBA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB442F546E360028CBA7 /* AppDelegate.swift */; };
+		B51BAB472F546E420028CBA7 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB462F546E420028CBA7 /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B5EE0DBF2F532DB90007272D /* PBXContainerItemProxy */ = {
+		A4000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B5EE0D932F532D6C0007272D /* Project object */;
+			containerPortal = A5000001 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B5EE0DB02F532DB90007272D;
+			remoteGlobalIDString = A9000002;
 			remoteInfo = QLPlainViewExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B5EE0DC52F532DB90007272D /* Embed Foundation Extensions */ = {
+		A6000001 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B5EE0DC12F532DB90007272D /* QLPlainViewExtension.appex in Embed Foundation Extensions */,
+				A1000011 /* QLPlainViewExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,130 +55,226 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B5EE0D9B2F532D6C0007272D /* QLPlainView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLPlainView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5EE0D9E2F532D6C0007272D /* QLPlainViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLPlainViewApp.swift; sourceTree = "<group>"; };
-		B5EE0DA02F532D6C0007272D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B5EE0DA22F532D6D0007272D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5EE0DA52F532D6D0007272D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B5EE0DA72F532D6D0007272D /* QLPlainView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPlainView.entitlements; sourceTree = "<group>"; };
-		B5EE0DB12F532DB90007272D /* QLPlainViewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLPlainViewExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5EE0DB32F532DB90007272D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		B5EE0DB62F532DB90007272D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		B5EE0DB82F532DB90007272D /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
-		B5EE0DBB2F532DB90007272D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
-		B5EE0DBD2F532DB90007272D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5EE0DBE2F532DB90007272D /* QLPlainViewExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPlainViewExtension.entitlements; sourceTree = "<group>"; };
-		B5EE0DC62F5331A00007272D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2000001 /* QLPlainViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLPlainViewApp.swift; sourceTree = "<group>"; };
+		A2000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2000003 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A2000004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2000005 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2000006 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		A2000007 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		A2000009 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
+		A200000A /* YAMLHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMLHighlighter.swift; sourceTree = "<group>"; };
+		A200000B /* LuaHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuaHighlighter.swift; sourceTree = "<group>"; };
+		A200000C /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
+		A200000D /* String+BinaryDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BinaryDetection.swift"; sourceTree = "<group>"; };
+		A200000E /* Logger+File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+File.swift"; sourceTree = "<group>"; };
+		A200000F /* PreviewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContentView.swift; sourceTree = "<group>"; };
+		A2000010 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		A2000011 /* QLPlainView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPlainView.entitlements; sourceTree = "<group>"; };
+		A2000012 /* QLPlainViewExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPlainViewExtension.entitlements; sourceTree = "<group>"; };
+		A2000013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3000002 /* QLPlainViewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLPlainViewExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3000003 /* QLPlainView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLPlainView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B51BAB382F5456BA0028CBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = PreviewViewController.xib; sourceTree = "<group>"; };
+		B51BAB3C2F545EE50028CBA7 /* JSONHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHighlighter.swift; sourceTree = "<group>"; };
+		B51BAB3E2F545F0F0028CBA7 /* XMLHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLHighlighter.swift; sourceTree = "<group>"; };
+		B51BAB402F5467770028CBA7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		B51BAB442F546E360028CBA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B51BAB462F546E420028CBA7 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B5EE0D982F532D6C0007272D /* Frameworks */ = {
+		A7000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5EE0DAE2F532DB90007272D /* Frameworks */ = {
+		A7000002 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EE0DB42F532DB90007272D /* Quartz.framework in Frameworks */,
+				A1000010 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B5EE0D922F532D6C0007272D = {
+		A8000001 = {
 			isa = PBXGroup;
 			children = (
-				B5EE0DC62F5331A00007272D /* Info.plist */,
-				B5EE0D9D2F532D6C0007272D /* QLPlainView */,
-				B5EE0DB52F532DB90007272D /* QLPlainViewExtension */,
-				B5EE0DB22F532DB90007272D /* Frameworks */,
-				B5EE0D9C2F532D6C0007272D /* Products */,
+				B51BAB402F5467770028CBA7 /* Info.plist */,
+				A8000002 /* QLPlainView */,
+				A8000010 /* QLPlainViewExtension */,
+				A8000020 /* Frameworks */,
+				A8000030 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B5EE0D9C2F532D6C0007272D /* Products */ = {
+		A8000002 /* QLPlainView */ = {
 			isa = PBXGroup;
 			children = (
-				B5EE0D9B2F532D6C0007272D /* QLPlainView.app */,
-				B5EE0DB12F532DB90007272D /* QLPlainViewExtension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B5EE0D9D2F532D6C0007272D /* QLPlainView */ = {
-			isa = PBXGroup;
-			children = (
-				B5EE0D9E2F532D6C0007272D /* QLPlainViewApp.swift */,
-				B5EE0DA02F532D6C0007272D /* ContentView.swift */,
-				B5EE0DA22F532D6D0007272D /* Assets.xcassets */,
-				B5EE0DA72F532D6D0007272D /* QLPlainView.entitlements */,
-				B5EE0DA42F532D6D0007272D /* Preview Content */,
+				B51BAB432F546E210028CBA7 /* Views */,
+				B51BAB422F546DEE0028CBA7 /* App */,
+				A2000002 /* ContentView.swift */,
+				A2000004 /* Assets.xcassets */,
+				A2000011 /* QLPlainView.entitlements */,
+				A8000003 /* Preview Content */,
 			);
 			path = QLPlainView;
 			sourceTree = "<group>";
 		};
-		B5EE0DA42F532D6D0007272D /* Preview Content */ = {
+		A8000003 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B5EE0DA52F532D6D0007272D /* Preview Assets.xcassets */,
+				A2000005 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B5EE0DB22F532DB90007272D /* Frameworks */ = {
+		A8000010 /* QLPlainViewExtension */ = {
 			isa = PBXGroup;
 			children = (
-				B5EE0DB32F532DB90007272D /* Quartz.framework */,
+				B51BAB3A2F5456BA0028CBA7 /* Base.lproj */,
+				A8000011 /* Preview */,
+				A8000012 /* Models */,
+				A8000013 /* Highlighters */,
+				A8000014 /* Utilities */,
+				A8000015 /* Services */,
+				A8000016 /* UI */,
+				A2000007 /* PreviewProvider.swift */,
+				A2000012 /* QLPlainViewExtension.entitlements */,
+				A2000013 /* Info.plist */,
+			);
+			path = QLPlainViewExtension;
+			sourceTree = "<group>";
+		};
+		A8000011 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				A2000006 /* PreviewViewController.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		A8000012 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2000009 /* FileType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A8000013 /* Highlighters */ = {
+			isa = PBXGroup;
+			children = (
+				A200000A /* YAMLHighlighter.swift */,
+				A200000B /* LuaHighlighter.swift */,
+				B51BAB3C2F545EE50028CBA7 /* JSONHighlighter.swift */,
+				B51BAB3E2F545F0F0028CBA7 /* XMLHighlighter.swift */,
+			);
+			path = Highlighters;
+			sourceTree = "<group>";
+		};
+		A8000014 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A200000C /* String+Attributed.swift */,
+				A200000D /* String+BinaryDetection.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A8000015 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A200000E /* Logger+File.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A8000016 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A200000F /* PreviewContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A8000020 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2000010 /* Quartz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B5EE0DB52F532DB90007272D /* QLPlainViewExtension */ = {
+		A8000030 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5EE0DB62F532DB90007272D /* PreviewViewController.swift */,
-				B5EE0DB82F532DB90007272D /* PreviewProvider.swift */,
-				B5EE0DBA2F532DB90007272D /* PreviewViewController.xib */,
-				B5EE0DBD2F532DB90007272D /* Info.plist */,
-				B5EE0DBE2F532DB90007272D /* QLPlainViewExtension.entitlements */,
+				A3000003 /* QLPlainView.app */,
+				A3000002 /* QLPlainViewExtension.appex */,
 			);
-			path = QLPlainViewExtension;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B51BAB3A2F5456BA0028CBA7 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				B51BAB392F5456BA0028CBA7 /* PreviewViewController.xib */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		B51BAB422F546DEE0028CBA7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A2000001 /* QLPlainViewApp.swift */,
+				B51BAB442F546E360028CBA7 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B51BAB432F546E210028CBA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2000003 /* SettingsView.swift */,
+				B51BAB462F546E420028CBA7 /* AboutView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5EE0D9A2F532D6C0007272D /* QLPlainView */ = {
+		A9000001 /* QLPlainView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5EE0DAA2F532D6D0007272D /* Build configuration list for PBXNativeTarget "QLPlainView" */;
+			buildConfigurationList = AB000001 /* Build configuration list for PBXNativeTarget "QLPlainView" */;
 			buildPhases = (
-				B5EE0D972F532D6C0007272D /* Sources */,
-				B5EE0D982F532D6C0007272D /* Frameworks */,
-				B5EE0D992F532D6C0007272D /* Resources */,
-				B5EE0DC52F532DB90007272D /* Embed Foundation Extensions */,
+				AC000001 /* Sources */,
+				A7000001 /* Frameworks */,
+				AD000001 /* Resources */,
+				A6000001 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B5EE0DC02F532DB90007272D /* PBXTargetDependency */,
+				AE000001 /* PBXTargetDependency */,
 			);
 			name = QLPlainView;
 			productName = QLPlainView;
-			productReference = B5EE0D9B2F532D6C0007272D /* QLPlainView.app */;
+			productReference = A3000003 /* QLPlainView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B5EE0DB02F532DB90007272D /* QLPlainViewExtension */ = {
+		A9000002 /* QLPlainViewExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5EE0DC22F532DB90007272D /* Build configuration list for PBXNativeTarget "QLPlainViewExtension" */;
+			buildConfigurationList = AB000002 /* Build configuration list for PBXNativeTarget "QLPlainViewExtension" */;
 			buildPhases = (
-				B5EE0DAD2F532DB90007272D /* Sources */,
-				B5EE0DAE2F532DB90007272D /* Frameworks */,
-				B5EE0DAF2F532DB90007272D /* Resources */,
+				AC000002 /* Sources */,
+				A7000002 /* Frameworks */,
+				AD000002 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -174,28 +282,28 @@
 			);
 			name = QLPlainViewExtension;
 			productName = QLPlainViewExtension;
-			productReference = B5EE0DB12F532DB90007272D /* QLPlainViewExtension.appex */;
+			productReference = A3000002 /* QLPlainViewExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B5EE0D932F532D6C0007272D /* Project object */ = {
+		A5000001 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					B5EE0D9A2F532D6C0007272D = {
+					A9000001 = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					B5EE0DB02F532DB90007272D = {
+					A9000002 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = B5EE0D962F532D6C0007272D /* Build configuration list for PBXProject "QLPlainView" */;
+			buildConfigurationList = AB000000 /* Build configuration list for PBXProject "QLPlainView" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,71 +311,83 @@
 				en,
 				Base,
 			);
-			mainGroup = B5EE0D922F532D6C0007272D;
-			productRefGroup = B5EE0D9C2F532D6C0007272D /* Products */;
+			mainGroup = A8000001;
+			productRefGroup = A8000030 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5EE0D9A2F532D6C0007272D /* QLPlainView */,
-				B5EE0DB02F532DB90007272D /* QLPlainViewExtension */,
+				A9000001 /* QLPlainView */,
+				A9000002 /* QLPlainViewExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B5EE0D992F532D6C0007272D /* Resources */ = {
+		AD000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EE0DA62F532D6D0007272D /* Preview Assets.xcassets in Resources */,
-				B5EE0DA32F532D6D0007272D /* Assets.xcassets in Resources */,
+				A1000004 /* Assets.xcassets in Resources */,
+				A1000005 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5EE0DAF2F532DB90007272D /* Resources */ = {
+		AD000002 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EE0DBC2F532DB90007272D /* Base in Resources */,
+				B51BAB3B2F5456BA0028CBA7 /* PreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B5EE0D972F532D6C0007272D /* Sources */ = {
+		AC000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EE0DA12F532D6C0007272D /* ContentView.swift in Sources */,
-				B5EE0D9F2F532D6C0007272D /* QLPlainViewApp.swift in Sources */,
+				B51BAB452F546E360028CBA7 /* AppDelegate.swift in Sources */,
+				A1000001 /* QLPlainViewApp.swift in Sources */,
+				A1000002 /* ContentView.swift in Sources */,
+				A1000003 /* SettingsView.swift in Sources */,
+				B51BAB472F546E420028CBA7 /* AboutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5EE0DAD2F532DB90007272D /* Sources */ = {
+		AC000002 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EE0DB72F532DB90007272D /* PreviewViewController.swift in Sources */,
-				B5EE0DB92F532DB90007272D /* PreviewProvider.swift in Sources */,
+				A1000006 /* PreviewViewController.swift in Sources */,
+				A1000007 /* PreviewProvider.swift in Sources */,
+				A1000009 /* FileType.swift in Sources */,
+				B51BAB3D2F545EE50028CBA7 /* JSONHighlighter.swift in Sources */,
+				A100000A /* YAMLHighlighter.swift in Sources */,
+				B51BAB3F2F545F0F0028CBA7 /* XMLHighlighter.swift in Sources */,
+				A100000B /* LuaHighlighter.swift in Sources */,
+				A100000C /* String+Attributed.swift in Sources */,
+				A100000D /* String+BinaryDetection.swift in Sources */,
+				A100000E /* Logger+File.swift in Sources */,
+				A100000F /* PreviewContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5EE0DC02F532DB90007272D /* PBXTargetDependency */ = {
+		AE000001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B5EE0DB02F532DB90007272D /* QLPlainViewExtension */;
-			targetProxy = B5EE0DBF2F532DB90007272D /* PBXContainerItemProxy */;
+			target = A9000002 /* QLPlainViewExtension */;
+			targetProxy = A4000001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B5EE0DBA2F532DB90007272D /* PreviewViewController.xib */ = {
+		B51BAB392F5456BA0028CBA7 /* PreviewViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B5EE0DBB2F532DB90007272D /* Base */,
+				B51BAB382F5456BA0028CBA7 /* Base */,
 			);
 			name = PreviewViewController.xib;
 			sourceTree = "<group>";
@@ -275,15 +395,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B5EE0DA82F532D6D0007272D /* Debug */ = {
+		B0000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -293,7 +409,6 @@
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -302,18 +417,16 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNINITIALIZED = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -328,9 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Info.plist;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -340,15 +451,11 @@
 			};
 			name = Debug;
 		};
-		B5EE0DA92F532D6D0007272D /* Release */ = {
+		B0000002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -358,7 +465,6 @@
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -367,18 +473,16 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNINITIALIZED = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -387,36 +491,32 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Info.plist;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
-		B5EE0DAB2F532D6D0007272D /* Debug */ = {
+		B0000003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = QLPlainView/QLPlainView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QLPlainView/Preview Content\"";
 				DEVELOPMENT_TEAM = 4T8L4FSXRB;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshaken.QLPlainView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,26 +525,25 @@
 			};
 			name = Debug;
 		};
-		B5EE0DAC2F532D6D0007272D /* Release */ = {
+		B0000004 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = QLPlainView/QLPlainView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QLPlainView/Preview Content\"";
 				DEVELOPMENT_TEAM = 4T8L4FSXRB;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshaken.QLPlainView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,23 +552,23 @@
 			};
 			name = Release;
 		};
-		B5EE0DC32F532DB90007272D /* Debug */ = {
+		B0000005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPlainViewExtension/QLPlainViewExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4T8L4FSXRB;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = QLPlainViewExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QLPlainViewExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshaken.QLPlainView.QLPlainViewExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,23 +578,23 @@
 			};
 			name = Debug;
 		};
-		B5EE0DC42F532DB90007272D /* Release */ = {
+		B0000006 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPlainViewExtension/QLPlainViewExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4T8L4FSXRB;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = QLPlainViewExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QLPlainViewExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshaken.QLPlainView.QLPlainViewExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,34 +607,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5EE0D962F532D6C0007272D /* Build configuration list for PBXProject "QLPlainView" */ = {
+		AB000000 /* Build configuration list for PBXProject "QLPlainView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5EE0DA82F532D6D0007272D /* Debug */,
-				B5EE0DA92F532D6D0007272D /* Release */,
+				B0000001 /* Debug */,
+				B0000002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5EE0DAA2F532D6D0007272D /* Build configuration list for PBXNativeTarget "QLPlainView" */ = {
+		AB000001 /* Build configuration list for PBXNativeTarget "QLPlainView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5EE0DAB2F532D6D0007272D /* Debug */,
-				B5EE0DAC2F532D6D0007272D /* Release */,
+				B0000003 /* Debug */,
+				B0000004 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5EE0DC22F532DB90007272D /* Build configuration list for PBXNativeTarget "QLPlainViewExtension" */ = {
+		AB000002 /* Build configuration list for PBXNativeTarget "QLPlainViewExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5EE0DC32F532DB90007272D /* Debug */,
-				B5EE0DC42F532DB90007272D /* Release */,
+				B0000005 /* Debug */,
+				B0000006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B5EE0D932F532D6C0007272D /* Project object */;
+	rootObject = A5000001 /* Project object */;
 }

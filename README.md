@@ -1,6 +1,6 @@
 # QLPlainView
 
-A macOS QuickLook extension that enables instant preview of plain text files, YAML, JSON, XML directly in Finder with just a spacebar press.
+A macOS QuickLook extension that enables instant preview of plain text files, YAML, JSON, XML, Lua, and other common text formats directly in Finder with just a spacebar press.
 
 ---
 
@@ -10,51 +10,94 @@ A macOS QuickLook extension that enables instant preview of plain text files, YA
 - **YAML / YML** — with syntax highlighting (keys, comments, list items)
 - **JSON** — structured text preview
 - **XML** — raw markup preview
+- **Lua** — with syntax highlighting
 - **Auto encoding detection** — UTF-8, ASCII, ISO Latin-1, UTF-16, EUC-JP, Shift-JIS
-- **Large file handling** — files over 100KB are truncated with a notice
+- **Large file handling** — configurable max file size (default 500MB)
 - **Dark / Light mode** — fully respects system appearance
 - **Dynamic window sizing** — preview window adjusts to content size
+- **Text selection & copy** — copy content from preview
+- **System "Open With"** — use system default apps or select alternate
 
 ---
 
 ## Requirements
 
 - macOS 14 or later
+- Xcode 15+
 
 ---
 
 ## Installation
 
-1. Download the latest `QLPlainView.dmg` from [Releases](../../releases)
-2. Open the DMG and drag `QLPlainView.app` to your **Applications** folder
-3. Launch `QLPlainView.app` once to register the extension
-4. Select any supported file in Finder and press **Space**
+### From App Store (when available)
 
-> The app runs silently in the background and does not appear in the Dock.
+1. Open `QLPlainView.app`
+2. The extension is registered automatically
+3. Select any supported file in Finder and press **Space**
+
+### From Source
+
+1. Clone the repository
+2. Open the project in Xcode
+3. Build the project (Shift+Cmd+B)
+4. Enable the extension in Terminal:
+
+```bash
+rm -rf /Applications/QLPlainView.app && cp -r $(find ~/Library/Developer/Xcode/DerivedData -name "QLPlainView.app" 2>/dev/null | grep "Build/Products/Debug" | grep -v "Index.noindex" | head -1) /Applications/ && open /Applications/QLPlainView.app
+```
+
+5. Reset QuickLook cache:
+
+```bash
+qlmanage -r
+```
 
 ---
 
 ## Supported File Types
 
-| Type | Extensions |
-|------|-----------|
-| Plain Text | No extension, `.txt` |
-| YAML | `.yaml`, `.yml` |
-| JSON | `.json` |
-| XML | `.xml` |
+### Standard
+- Plain text files
+- YAML (.yaml, .yml)
+- JSON (.json)
+- XML (.xml)
+- Markdown (.md)
+- Comma-separated values (.csv, .tsv)
+- Logs (.log)
+- Config files (.conf, .ini)
 
+### Extended
+- Lua (.lua) — with syntax highlighting
+- TOML (.toml)
+- .env files
+- Lock/lock files
+- Gradle files
+- Modelfile files
+- Dockerfile, Makefile, Podfile, Gemfile (no extension)
+- Any other readable text file
 
 ---
 
-## Uninstall
+## Build from Source
 
 ```bash
-# Remove the app
-rm -rf /Applications/QLPlainView.app
+# Clone the repository
+git clone <repository-url>
+cd QLPlainView
 
-# Reset QuickLook
+# Open in Xcode
+open QLPlainView.xcodeproj
+
+# Build
+# Press Shift+Cmd+B, or select Product > Build
+
+# Enable extension
+pluginkit -e use -i com.joshaken.QLPlainView.QLPlainViewExtension
+
+# Clear QuickLook cache
 qlmanage -r
 ```
+
 ---
 
 ## License
