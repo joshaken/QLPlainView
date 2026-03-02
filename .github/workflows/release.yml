@@ -7,7 +7,8 @@ on:
         description: "Release version (example: v1.0.2)"
         required: true
         default: "v1.0.0"
-
+permissions:
+  contents: write 
 jobs:
   release:
     name: Build and Release .dmg
@@ -19,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 1️⃣ 创建并推送 tag
+      # 1️⃣ push tag
       - name: Create and push tag
         run: |
           VERSION=${{ github.event.inputs.version }}
@@ -32,7 +33,7 @@ jobs:
           git tag $VERSION
           git push origin $VERSION
 
-      # 2️⃣ 构建 App
+      # 2️⃣ build App
       - name: Build Release .app
         run: |
           set -e
@@ -56,11 +57,11 @@ jobs:
 
           ls -la artifacts
 
-      # 3️⃣ 安装 create-dmg
+      # 3️⃣ install create-dmg
       - name: Install create-dmg
         run: brew install create-dmg
 
-      # 4️⃣ 生成 dmg
+      # 4️⃣ create dmg
       - name: Create .dmg
         run: |
           set -e
@@ -74,7 +75,7 @@ jobs:
 
           ls -la artifacts
 
-      # 5️⃣ 创建 GitHub Release
+      # 5️⃣ create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
