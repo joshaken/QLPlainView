@@ -9,22 +9,25 @@ on:
         default: "v1.0.0"
 
 permissions:
-  contents: write 
+  contents: write
 
 jobs:
   release:
-    name: Build and Release .dmg
+    name: Build and Release DMG
     runs-on: macos-latest
 
     steps:
+      # Checkout full repository history
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 1️⃣ push tag
+      # Create and push tag if not exists
       - name: Create and push tag
         run: |
+          set -e
+
           VERSION=${{ github.event.inputs.version }}
 
           echo "Creating tag: $VERSION"
@@ -32,10 +35,14 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git tag $VERSION
-          git push origin $VERSION
+          if git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "Tag already exists."
+          else
+            git tag "$VERSION"
+            git push origin "$VERSION"
+          fi
 
-      # 2️⃣ build App
+      # Build Release app
       - name: Build Release .app
         run: |
           set -e
@@ -50,7 +57,7 @@ jobs:
           APP_PATH="./DerivedData/Build/Products/Release/QLPlainView.app"
 
           if [ ! -d "$APP_PATH" ]; then
-            echo "❌ App not found!"
+            echo "App not found."
             exit 1
           fi
 
@@ -59,12 +66,12 @@ jobs:
 
           ls -la artifacts
 
-      # 3️⃣ install create-dmg
+      # Install create-dmg tool
       - name: Install create-dmg
         run: brew install create-dmg
 
-      # 4️⃣ create dmg
-      - name: Create .dmg
+      # Create DMG file
+      - name: Create DMG
         run: |
           set -e
 
@@ -77,17 +84,38 @@ jobs:
 
           ls -la artifacts
 
-      # 5️⃣ Generate Release Notes (GitHub Official API)
+      # Generate release notes using GitHub official API
       - name: Generate Release Notes
         id: generate_notes
         run: |
+          set -e
+
           VERSION=${{ github.event.inputs.version }}
 
-          NOTES=$(gh api \
-            repos/${{ github.repository }}/releases/generate-notes \
-            -f tag_name="$VERSION" \
-            -f target_commitish="${{ github.sha }}" \
-            -q .body)
+          PREVIOUS_TAG=$(git tag --sort=-creatordate | grep -v "$VERSION" | head -n 1)
+
+          echo "Current tag: $VERSION"
+          echo "Previous tag: $PREVIOUS_TAG"
+
+          if [ -z "$PREVIOUS_TAG" ]; then
+            NOTES=$(gh api \
+              repos/${{ github.repository }}/releases/generate-notes \
+              -f tag_name="$VERSION" \
+              -q .body)
+          else
+            NOTES=$(gh api \
+              repos/${{ github.repository }}/releases/generate-notes \
+              -f tag_name="$VERSION" \
+              -f previous_tag_name="$PREVIOUS_TAG" \
+              -q .body)
+          fi
+
+          # Fallback to git log if only Full Changelog is returned
+          if echo "$NOTES" | grep -q "Full Changelog"; then
+            echo "Falling back to git log summary..."
+
+            NOTES="## Changes\n\n$(git log ${PREVIOUS_TAG}..HEAD --pretty=format:'- %s')"
+          fi
 
           echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
           echo "$NOTES" >> $GITHUB_ENV
@@ -95,7 +123,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 6️⃣ create GitHub Release
+      # Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
