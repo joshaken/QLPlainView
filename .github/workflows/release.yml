@@ -7,8 +7,10 @@ on:
         description: "Release version (example: v1.0.2)"
         required: true
         default: "v1.0.0"
+
 permissions:
   contents: write 
+
 jobs:
   release:
     name: Build and Release .dmg
@@ -75,7 +77,25 @@ jobs:
 
           ls -la artifacts
 
-      # 5️⃣ create GitHub Release
+      # 5️⃣ Generate Release Notes (GitHub Official API)
+      - name: Generate Release Notes
+        id: generate_notes
+        run: |
+          VERSION=${{ github.event.inputs.version }}
+
+          NOTES=$(gh api \
+            repos/${{ github.repository }}/releases/generate-notes \
+            -f tag_name="$VERSION" \
+            -f target_commitish="${{ github.sha }}" \
+            -q .body)
+
+          echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
+          echo "$NOTES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 6️⃣ create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -83,7 +103,7 @@ jobs:
           name: Release ${{ github.event.inputs.version }}
           draft: false
           prerelease: false
-          generate_release_notes: true
+          body: ${{ env.RELEASE_BODY }}
           files: artifacts/*.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
