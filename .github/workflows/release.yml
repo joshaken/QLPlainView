@@ -1,0 +1,84 @@
+name: Release macOS App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Build and Release .dmg
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Find Xcode project/workspace
+        id: find_project
+        run: |
+          if ls *.xcworkspace 1> /dev/null 2>&1; then
+            echo "file_type=workspace" >> $GITHUB_OUTPUT
+            echo "file_name=$(ls *.xcworkspace | head -n1)" >> $GITHUB_OUTPUT
+          elif ls *.xcodeproj 1> /dev/null 2>&1; then
+            echo "file_type=project" >> $GITHUB_OUTPUT
+            echo "file_name=$(ls *.xcodeproj | head -n1)" >> $GITHUB_OUTPUT
+          else
+            echo "No Xcode project found!"
+            exit 1
+          fi
+
+      - name: Get scheme name
+        id: get_scheme
+        run: |
+          scheme=$(xcodebuild -list -json | ruby -r json -e "puts JSON.parse(STDIN.read)['project']['targets'][0]")
+          echo "scheme=$scheme" >> $GITHUB_OUTPUT
+
+      - name: Build Release .app
+        run: |
+          xcodebuild \
+            -${{ steps.find_project.outputs.file_type }} "${{ steps.find_project.outputs.file_name }}" \
+            -scheme "${{ steps.get_scheme.outputs.scheme }}" \
+            -configuration Release \
+            -derivedDataPath ./DerivedData \
+            build
+
+          # find .app path
+          APP_PATH=$(find ./DerivedData -name "*.app" -type d | head -n1)
+          if [ -z "$APP_PATH" ]; then
+            echo "Failed to find .app in DerivedData"
+            exit 1
+          fi
+
+          # copy to artifacts
+          mkdir -p artifacts
+          cp -R "$APP_PATH" ./artifacts/
+
+      - name: Install create-dmg
+        run: brew install create-dmg
+
+      - name: Create .dmg
+        run: |
+          APP_NAME="${{ steps.get_scheme.outputs.scheme }}"
+          create-dmg \
+            --volname "$APP_NAME" \
+            --window-pos 200 120 \
+            --window-size 800 400 \
+            --icon-size 128 \
+            --icon "$APP_NAME.app" 200 190 \
+            --hide-extension "$APP_NAME.app" \
+            --app-drop-link 600 185 \
+            "./artifacts/$APP_NAME.dmg" \
+            "./artifacts/"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            artifacts/*.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
