@@ -1,10 +1,13 @@
-name: Release macOS App
+name: Manual Release macOS App
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (example: v1.0.2)"
+        required: true
+        default: "v1.0.0"
+
 jobs:
   release:
     name: Build and Release .dmg
@@ -13,7 +16,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      # 1️⃣ 创建并推送 tag
+      - name: Create and push tag
+        run: |
+          VERSION=${{ github.event.inputs.version }}
+
+          echo "Creating tag: $VERSION"
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git tag $VERSION
+          git push origin $VERSION
+
+      # 2️⃣ 构建 App
       - name: Build Release .app
         run: |
           set -e
@@ -28,44 +47,42 @@ jobs:
           APP_PATH="./DerivedData/Build/Products/Release/QLPlainView.app"
 
           if [ ! -d "$APP_PATH" ]; then
-            echo "❌ App not found at $APP_PATH"
+            echo "❌ App not found!"
             exit 1
           fi
 
           mkdir -p artifacts
           cp -R "$APP_PATH" ./artifacts/
 
-          echo "✅ App copied to artifacts/"
           ls -la artifacts
 
+      # 3️⃣ 安装 create-dmg
       - name: Install create-dmg
         run: brew install create-dmg
 
+      # 4️⃣ 生成 dmg
       - name: Create .dmg
         run: |
           set -e
 
+          VERSION=${{ github.event.inputs.version }}
+
           create-dmg \
             --volname "QLPlainView" \
-            --window-pos 200 120 \
-            --window-size 800 400 \
-            --icon-size 128 \
-            --icon "QLPlainView.app" 200 190 \
-            --hide-extension "QLPlainView.app" \
-            --app-drop-link 600 185 \
-            "./artifacts/QLPlainView.dmg" \
+            "./artifacts/QLPlainView-$VERSION.dmg" \
             "./artifacts/"
 
-          echo "✅ DMG created"
           ls -la artifacts
 
+      # 5️⃣ 创建 GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.event.inputs.version }}
+          name: Release ${{ github.event.inputs.version }}
           draft: false
           prerelease: false
           generate_release_notes: true
-          files: artifacts/QLPlainView.dmg
+          files: artifacts/*.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
