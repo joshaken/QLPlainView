@@ -13,13 +13,17 @@ class PreviewContentView: NSView {
     
     // MARK: - Properties
     
-    /// Weak reference to the scroll view containing the text content
+    /// Weak reference to the scroll view containing the text content.
+    /// The weak reference prevents retain cycles by allowing the scroll view to be deallocated
+    /// even if this view holds a strong reference to it.
     private weak var scrollView: NSScrollView?
     
-    /// Weak reference to the "Open With" button
+    /// Weak reference to the "Open With" button.
+    /// Weak reference prevents strong cycle between this view and its button.
     private weak var openButton: NSButton?
     
-    /// The file URL currently being previewed, used when opening externally
+    /// The file URL currently being previewed, used when opening externally.
+    /// Stored to retrieve when user clicks "Open With" button.
     private var currentFileURL: URL?
     
     // MARK: - Init
@@ -36,13 +40,14 @@ class PreviewContentView: NSView {
     
     // MARK: - Setup
     
-    /// Configure the view's basic layout behavior
+    /// Configure the view's basic layout behavior.
+    /// Autoresizing masks ensure the view maintains proper relationships with its superview.
     private func setupView() {
         autoresizingMask = [.width, .height]
     }
     
     /// Called when the view is added to the view hierarchy.
-    /// NSView uses viewDidMoveToWindow instead of didMoveToSuperview (which is UIKit only).
+    /// NSView uses viewDidMoveToWindow instead of didMoveToSuperview (UIKit-specific).
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
         guard window != nil else { return }
@@ -76,6 +81,10 @@ class PreviewContentView: NSView {
     
     /// Sets the file URL and scroll view reference.
     /// Call this from PreviewViewController after content is loaded.
+    /// 
+    /// - Parameters:
+    ///   - url: The file URL to open externally.
+    ///   - scrollView: The scroll view containing the preview content.
     func configure(with url: URL, scrollView: NSScrollView) {
         self.currentFileURL = url
         self.scrollView = scrollView
@@ -115,7 +124,8 @@ class PreviewContentView: NSView {
     
     // MARK: - Sublime Text Detection
     
-    /// Returns true if any version of Sublime Text is installed
+    /// Returns true if any version of Sublime Text is installed.
+    /// Checked to determine button title and open-with behavior.
     private var hasSublimeText: Bool {
         sublimeTextURL != nil
     }

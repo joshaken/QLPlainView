@@ -7,6 +7,8 @@
 
 import Cocoa
 
+/// File type enumeration representing supported file formats for syntax highlighting.
+/// Determines the appropriate syntax highlighting rules based on file extension.
 enum FileType {
     case yaml
     case lua
@@ -14,6 +16,11 @@ enum FileType {
     case xml
     case plain
     
+    /// Detects the file type by examining the URL's file extension.
+    /// Handles case-insensitive extension matching.
+    ///
+    /// - Parameter url: The URL of the file to analyze.
+    /// - Returns: The corresponding FileType enum case.
     static func detect(from url: URL) -> FileType {
         switch url.pathExtension.lowercased() {
         case "yaml", "yml":
@@ -29,6 +36,13 @@ enum FileType {
         }
     }
     
+    /// Applies syntax highlighting to the provided content based on the file type.
+    /// Delegates to specific highlighter implementations or returns plain text.
+    ///
+    /// - Parameters:
+    ///   - content: The text content to highlight.
+    ///   - font: The font to use for rendering.
+    /// - Returns: An NSAttributedString with appropriate syntax highlighting applied.
     func highlight(content: String, font: NSFont) -> NSAttributedString {
         switch self {
         case .yaml:
@@ -47,3 +61,5 @@ enum FileType {
         }
     }
 }
+
+extension FileType: Equatable {}

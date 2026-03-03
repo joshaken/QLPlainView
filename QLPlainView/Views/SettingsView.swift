@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import os
 
 struct SettingsView: View {
+    
+    private let logger = Logger(subsystem: "com.joshaken.QLPlainView", category: "settings")
+    private let store = SettingsStore.shared
     
     enum SizeUnit: String, CaseIterable {
         case kb = "KB"
@@ -69,9 +73,12 @@ struct SettingsView: View {
         }
     }
     
+    
+    // MARK: - Private
+    
+    /// From Extension's UserDefaults read current value
     private func loadCurrentValue() {
-        let saved = UserDefaults.standard.integer(forKey: "maxFileSizeBytes")
-        let bytes = saved > 0 ? saved : 102400
+        let bytes = store.maxFileSize
         let kb = bytes / 1024
         if kb >= 1024 {
             unit = .mb
@@ -80,8 +87,10 @@ struct SettingsView: View {
             unit = .kb
             sizeValue = String(kb)
         }
+        logger.info("Loaded max file size: \(bytes) bytes")
     }
     
+    /// convert value by units
     private func convertValue() {
         guard let value = Int(sizeValue) else { return }
         switch unit {
@@ -92,13 +101,15 @@ struct SettingsView: View {
         }
     }
     
+    /// Save settings，use defaults command line to write in Extension's UserDefaults
     private func save() {
         guard let value = Int(sizeValue), value > 0 else {
             showError = true
             return
         }
         let bytes = unit == .kb ? value * 1024 : value * 1024 * 1024
-        UserDefaults.standard.set(bytes, forKey: "maxFileSizeBytes")
+        store.save(bytes: bytes)
+        logger.info("Saved max file size: \(bytes) bytes")
         NSApp.keyWindow?.close()
     }
 }

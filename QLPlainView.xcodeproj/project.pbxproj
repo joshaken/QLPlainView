@@ -28,6 +28,23 @@
 		B51BAB3F2F545F0F0028CBA7 /* XMLHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB3E2F545F0F0028CBA7 /* XMLHighlighter.swift */; };
 		B51BAB452F546E360028CBA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB442F546E360028CBA7 /* AppDelegate.swift */; };
 		B51BAB472F546E420028CBA7 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB462F546E420028CBA7 /* AboutView.swift */; };
+		B5BC90512F570FC1007D03B1 /* quicklook_test.sh in Resources */ = {isa = PBXBuildFile; fileRef = B5BC904E2F570FC1007D03B1 /* quicklook_test.sh */; };
+		B5BC90522F570FC1007D03B1 /* quicklook_test.sh in Resources */ = {isa = PBXBuildFile; fileRef = B5BC904E2F570FC1007D03B1 /* quicklook_test.sh */; };
+		B5BC90672F57128B007D03B1 /* FileLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC90532F570FDE007D03B1 /* FileLoggerTests.swift */; };
+		B5BC90682F57128D007D03B1 /* SettingsPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC90542F570FDE007D03B1 /* SettingsPersistenceTests.swift */; };
+		B5BC906B2F5713CA007D03B1 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC906A2F5713CA007D03B1 /* SettingsStore.swift */; };
+		B5BC906C2F5713CA007D03B1 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC906A2F5713CA007D03B1 /* SettingsStore.swift */; };
+		B5BC906D2F57172F007D03B1 /* Logger+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000E /* Logger+File.swift */; };
+		B5BC906F2F57191C007D03B1 /* PreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC906E2F57191C007D03B1 /* PreviewTests.swift */; };
+		B5BC90702F57194B007D03B1 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000009 /* FileType.swift */; };
+		B5BC90712F571951007D03B1 /* YAMLHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000A /* YAMLHighlighter.swift */; };
+		B5BC90722F571954007D03B1 /* LuaHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000B /* LuaHighlighter.swift */; };
+		B5BC90732F571957007D03B1 /* JSONHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB3C2F545EE50028CBA7 /* JSONHighlighter.swift */; };
+		B5BC90742F571959007D03B1 /* XMLHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BAB3E2F545F0F0028CBA7 /* XMLHighlighter.swift */; };
+		B5BC90752F571968007D03B1 /* String+BinaryDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000D /* String+BinaryDetection.swift */; };
+		B5BC90762F57196B007D03B1 /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000C /* String+Attributed.swift */; };
+		B5BC90772F57197D007D03B1 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000006 /* PreviewViewController.swift */; };
+		B5BC90782F5719C0007D03B1 /* PreviewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000F /* PreviewContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +54,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A9000002;
 			remoteInfo = QLPlainViewExtension;
+		};
+		B5BC90622F571277007D03B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9000001;
+			remoteInfo = QLPlainView;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -81,6 +105,14 @@
 		B51BAB402F5467770028CBA7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		B51BAB442F546E360028CBA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B51BAB462F546E420028CBA7 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		B5BC904A2F57033B007D03B1 /* QLPlainViewRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPlainViewRelease.entitlements; sourceTree = "<group>"; };
+		B5BC904B2F5704F3007D03B1 /* QLPlainViewExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPlainViewExtensionDebug.entitlements; sourceTree = "<group>"; };
+		B5BC904E2F570FC1007D03B1 /* quicklook_test.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = quicklook_test.sh; sourceTree = "<group>"; };
+		B5BC90532F570FDE007D03B1 /* FileLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTests.swift; sourceTree = "<group>"; };
+		B5BC90542F570FDE007D03B1 /* SettingsPersistenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPersistenceTests.swift; sourceTree = "<group>"; };
+		B5BC905E2F571277007D03B1 /* QLPlainViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QLPlainViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5BC906A2F5713CA007D03B1 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		B5BC906E2F57191C007D03B1 /* PreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,15 +131,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5BC905B2F571277007D03B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A8000001 = {
 			isa = PBXGroup;
 			children = (
+				B5BC90692F57139F007D03B1 /* Shared */,
+				B5BC90502F570FC1007D03B1 /* IntegrationTests */,
 				B51BAB402F5467770028CBA7 /* Info.plist */,
 				A8000002 /* QLPlainView */,
 				A8000010 /* QLPlainViewExtension */,
+				B5BC905F2F571277007D03B1 /* QLPlainViewTests */,
 				A8000020 /* Frameworks */,
 				A8000030 /* Products */,
 			);
@@ -116,6 +158,7 @@
 		A8000002 /* QLPlainView */ = {
 			isa = PBXGroup;
 			children = (
+				B5BC904A2F57033B007D03B1 /* QLPlainViewRelease.entitlements */,
 				B51BAB432F546E210028CBA7 /* Views */,
 				B51BAB422F546DEE0028CBA7 /* App */,
 				A2000002 /* ContentView.swift */,
@@ -137,6 +180,7 @@
 		A8000010 /* QLPlainViewExtension */ = {
 			isa = PBXGroup;
 			children = (
+				B5BC904B2F5704F3007D03B1 /* QLPlainViewExtensionDebug.entitlements */,
 				B51BAB3A2F5456BA0028CBA7 /* Base.lproj */,
 				A8000011 /* Preview */,
 				A8000012 /* Models */,
@@ -216,6 +260,7 @@
 			children = (
 				A3000003 /* QLPlainView.app */,
 				A3000002 /* QLPlainViewExtension.appex */,
+				B5BC905E2F571277007D03B1 /* QLPlainViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,6 +289,56 @@
 				B51BAB462F546E420028CBA7 /* AboutView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5BC904C2F570FC1007D03B1 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		B5BC904D2F570FC1007D03B1 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
+		B5BC904F2F570FC1007D03B1 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC904E2F570FC1007D03B1 /* quicklook_test.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		B5BC90502F570FC1007D03B1 /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC904C2F570FC1007D03B1 /* Fixtures */,
+				B5BC904D2F570FC1007D03B1 /* Reports */,
+				B5BC904F2F570FC1007D03B1 /* Scripts */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		B5BC905F2F571277007D03B1 /* QLPlainViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC90542F570FDE007D03B1 /* SettingsPersistenceTests.swift */,
+				B5BC90532F570FDE007D03B1 /* FileLoggerTests.swift */,
+				B5BC906E2F57191C007D03B1 /* PreviewTests.swift */,
+			);
+			path = QLPlainViewTests;
+			sourceTree = "<group>";
+		};
+		B5BC90692F57139F007D03B1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC906A2F5713CA007D03B1 /* SettingsStore.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +380,24 @@
 			productReference = A3000002 /* QLPlainViewExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		B5BC905D2F571277007D03B1 /* QLPlainViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5BC90642F571277007D03B1 /* Build configuration list for PBXNativeTarget "QLPlainViewTests" */;
+			buildPhases = (
+				B5BC905A2F571277007D03B1 /* Sources */,
+				B5BC905B2F571277007D03B1 /* Frameworks */,
+				B5BC905C2F571277007D03B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5BC90632F571277007D03B1 /* PBXTargetDependency */,
+			);
+			name = QLPlainViewTests;
+			productName = QLPlainViewTests;
+			productReference = B5BC905E2F571277007D03B1 /* QLPlainViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -300,6 +413,10 @@
 					};
 					A9000002 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					B5BC905D2F571277007D03B1 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = A9000001;
 					};
 				};
 			};
@@ -318,6 +435,7 @@
 			targets = (
 				A9000001 /* QLPlainView */,
 				A9000002 /* QLPlainViewExtension */,
+				B5BC905D2F571277007D03B1 /* QLPlainViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,6 +447,7 @@
 			files = (
 				A1000004 /* Assets.xcassets in Resources */,
 				A1000005 /* Preview Assets.xcassets in Resources */,
+				B5BC90512F570FC1007D03B1 /* quicklook_test.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +456,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B51BAB3B2F5456BA0028CBA7 /* PreviewViewController.xib in Resources */,
+				B5BC90522F570FC1007D03B1 /* quicklook_test.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5BC905C2F571277007D03B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +478,7 @@
 				A1000001 /* QLPlainViewApp.swift in Sources */,
 				A1000002 /* ContentView.swift in Sources */,
 				A1000003 /* SettingsView.swift in Sources */,
+				B5BC906B2F5713CA007D03B1 /* SettingsStore.swift in Sources */,
 				B51BAB472F546E420028CBA7 /* AboutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +491,7 @@
 				A1000007 /* PreviewProvider.swift in Sources */,
 				A1000009 /* FileType.swift in Sources */,
 				B51BAB3D2F545EE50028CBA7 /* JSONHighlighter.swift in Sources */,
+				B5BC906C2F5713CA007D03B1 /* SettingsStore.swift in Sources */,
 				A100000A /* YAMLHighlighter.swift in Sources */,
 				B51BAB3F2F545F0F0028CBA7 /* XMLHighlighter.swift in Sources */,
 				A100000B /* LuaHighlighter.swift in Sources */,
@@ -373,6 +502,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5BC905A2F571277007D03B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5BC906D2F57172F007D03B1 /* Logger+File.swift in Sources */,
+				B5BC90732F571957007D03B1 /* JSONHighlighter.swift in Sources */,
+				B5BC90762F57196B007D03B1 /* String+Attributed.swift in Sources */,
+				B5BC90742F571959007D03B1 /* XMLHighlighter.swift in Sources */,
+				B5BC90672F57128B007D03B1 /* FileLoggerTests.swift in Sources */,
+				B5BC90722F571954007D03B1 /* LuaHighlighter.swift in Sources */,
+				B5BC90752F571968007D03B1 /* String+BinaryDetection.swift in Sources */,
+				B5BC90702F57194B007D03B1 /* FileType.swift in Sources */,
+				B5BC906F2F57191C007D03B1 /* PreviewTests.swift in Sources */,
+				B5BC90712F571951007D03B1 /* YAMLHighlighter.swift in Sources */,
+				B5BC90682F57128D007D03B1 /* SettingsPersistenceTests.swift in Sources */,
+				B5BC90782F5719C0007D03B1 /* PreviewContentView.swift in Sources */,
+				B5BC90772F57197D007D03B1 /* PreviewViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -380,6 +529,11 @@
 			isa = PBXTargetDependency;
 			target = A9000002 /* QLPlainViewExtension */;
 			targetProxy = A4000001 /* PBXContainerItemProxy */;
+		};
+		B5BC90632F571277007D03B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9000001 /* QLPlainView */;
+			targetProxy = B5BC90622F571277007D03B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -483,6 +637,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -533,10 +688,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = QLPlainView/QLPlainView.entitlements;
+				CODE_SIGN_ENTITLEMENTS = QLPlainView/QLPlainViewRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -562,7 +717,8 @@
 		B0000005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = QLPlainViewExtension/QLPlainViewExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = QLPlainViewExtension/QLPlainViewExtensionDebug.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -589,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPlainViewExtension/QLPlainViewExtension.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -608,6 +765,59 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B5BC90652F571277007D03B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4T8L4FSXRB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshaken.QLPlainViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QLPlainView.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QLPlainView";
+			};
+			name = Debug;
+		};
+		B5BC90662F571277007D03B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4T8L4FSXRB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshaken.QLPlainViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QLPlainView.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QLPlainView";
 			};
 			name = Release;
 		};
@@ -637,6 +847,15 @@
 			buildConfigurations = (
 				B0000005 /* Debug */,
 				B0000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5BC90642F571277007D03B1 /* Build configuration list for PBXNativeTarget "QLPlainViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5BC90652F571277007D03B1 /* Debug */,
+				B5BC90662F571277007D03B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
