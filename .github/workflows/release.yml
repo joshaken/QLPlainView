@@ -1,5 +1,4 @@
 name: Manual Release macOS App
-
 on:
   workflow_dispatch:
     inputs:
@@ -7,34 +6,24 @@ on:
         description: "Release version (example: v1.0.2)"
         required: true
         default: "v1.0.0"
-
 permissions:
   contents: write
-
 jobs:
   release:
     name: Build and Release DMG
     runs-on: macos-latest
-
     steps:
-      # Checkout full repository history
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Create and push tag if not exists
       - name: Create and push tag
         run: |
           set -e
-
           VERSION=${{ github.event.inputs.version }}
-
-          echo "Creating tag: $VERSION"
-
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
           if git rev-parse "$VERSION" >/dev/null 2>&1; then
             echo "Tag already exists."
           else
@@ -42,88 +31,141 @@ jobs:
             git push origin "$VERSION"
           fi
 
-      # Build Release app
       - name: Build Release .app
         run: |
           set -e
-
           xcodebuild \
             -project QLPlainView.xcodeproj \
             -scheme QLPlainView \
             -configuration Release \
             -derivedDataPath ./DerivedData \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=YES \
             clean build
-
           APP_PATH="./DerivedData/Build/Products/Release/QLPlainView.app"
-
           if [ ! -d "$APP_PATH" ]; then
             echo "App not found."
             exit 1
           fi
-
           mkdir -p artifacts
           cp -R "$APP_PATH" ./artifacts/
-
           ls -la artifacts
 
-      # Install create-dmg tool
+      - name: Ad-Hoc Sign App
+        run: |
+          set -e
+          APP_PATH="./artifacts/QLPlainView.app"
+
+          codesign \
+            --deep \
+            --force \
+            --sign "-" \
+            --options runtime \
+            "$APP_PATH/Contents/PlugIns/QLPlainViewExtension.appex"
+
+          codesign \
+            --deep \
+            --force \
+            --sign "-" \
+            --options runtime \
+            "$APP_PATH"
+
+          echo "Verifying app signature..."
+          codesign --verify --verbose "$APP_PATH"
+          codesign --display --verbose "$APP_PATH"
+
       - name: Install create-dmg
         run: brew install create-dmg
 
-      # Create DMG file
       - name: Create DMG
         run: |
           set -e
-
           VERSION=${{ github.event.inputs.version }}
-
           create-dmg \
             --volname "QLPlainView" \
+            --window-size 500 300 \
+            --icon-size 100 \
+            --app-drop-link 350 150 \
             "./artifacts/QLPlainView-$VERSION.dmg" \
-            "./artifacts/"
-
+            "./artifacts/QLPlainView.app"
           ls -la artifacts
 
-      # Generate release notes using GitHub official API
+      - name: Verify DMG signature
+        run: |
+          set -e
+          VERSION=${{ github.event.inputs.version }}
+          DMG_PATH="./artifacts/QLPlainView-$VERSION.dmg"
+
+          echo "==============================="
+          echo "DMG file info:"
+          ls -lh "$DMG_PATH"
+
+          echo "==============================="
+          echo "DMG signature:"
+          codesign --display --verbose "$DMG_PATH" 2>&1 || echo "DMG itself is not signed (expected)"
+
+          echo "==============================="
+          echo "Mounting DMG to verify app inside..."
+          MOUNT_POINT=$(mktemp -d)
+          hdiutil attach "$DMG_PATH" -mountpoint "$MOUNT_POINT" -nobrowse -quiet
+
+          echo "App signature inside DMG:"
+          codesign --display --verbose "$MOUNT_POINT/QLPlainView.app" 2>&1
+
+          echo "Extension signature inside DMG:"
+          codesign --display --verbose \
+            "$MOUNT_POINT/QLPlainView.app/Contents/PlugIns/QLPlainViewExtension.appex" 2>&1
+
+          echo "==============================="
+          echo "Verification result:"
+          codesign --verify --deep --verbose "$MOUNT_POINT/QLPlainView.app" 2>&1
+
+          hdiutil detach "$MOUNT_POINT" -quiet
+
       - name: Generate Release Notes
         id: generate_notes
         run: |
           set -e
-
           VERSION=${{ github.event.inputs.version }}
-
-          PREVIOUS_TAG=$(git tag --sort=-creatordate | grep -v "$VERSION" | head -n 1)
+          PREVIOUS_TAG=$(git tag --sort=-creatordate | grep -v "^$VERSION$" | head -n 1)
 
           echo "Current tag: $VERSION"
-          echo "Previous tag: $PREVIOUS_TAG"
+          echo "Previous tag: ${PREVIOUS_TAG:-none}"
 
           if [ -z "$PREVIOUS_TAG" ]; then
-            NOTES=$(gh api \
-              repos/${{ github.repository }}/releases/generate-notes \
-              -f tag_name="$VERSION" \
-              -q .body)
+            # 没有历史tag，读取全部commit历史
+            echo "No previous tag found, using full commit history..."
+            NOTES="## Changes\n\n$(git log --pretty=format:'- %s' | head -n 30)"
           else
-            NOTES=$(gh api \
+            # 有历史tag，先尝试GitHub API
+            API_NOTES=$(gh api \
               repos/${{ github.repository }}/releases/generate-notes \
               -f tag_name="$VERSION" \
               -f previous_tag_name="$PREVIOUS_TAG" \
-              -q .body)
-          fi
+              -q .body 2>/dev/null || echo "")
 
-          # Fallback to git log if only Full Changelog is returned
-          if echo "$NOTES" | grep -q "Full Changelog"; then
-            echo "Falling back to git log summary..."
-
-            NOTES="## Changes\n\n$(git log ${PREVIOUS_TAG}..HEAD --pretty=format:'- %s')"
+            if [ -z "$API_NOTES" ] || echo "$API_NOTES" | grep -q "^## What's Changed"; then
+              # API返回内容太少，fallback到git log
+              echo "Falling back to git log..."
+              COMMIT_LOG=$(git log "${PREVIOUS_TAG}..HEAD" --pretty=format:'- %s')
+              if [ -z "$COMMIT_LOG" ]; then
+                NOTES="## Changes\n\nNo changes since $PREVIOUS_TAG."
+              else
+                NOTES="## Changes\n\n$COMMIT_LOG"
+              fi
+            else
+              NOTES="$API_NOTES"
+            fi
           fi
 
           echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
-          echo "$NOTES" >> $GITHUB_ENV
+          printf "%b" "$NOTES" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
