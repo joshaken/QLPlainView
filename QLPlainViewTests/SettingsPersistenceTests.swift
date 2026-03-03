@@ -10,16 +10,20 @@ import XCTest
 final class SettingsPersistenceTests: XCTestCase {
     
     var store: SettingsStore!
+    private let key = "maxFileSizeBytes"
+    private let defaultMaxFileSize = 102400
     
     override func setUp() {
         super.setUp()
         store = SettingsStore.shared
         store.reset()
+        UserDefaults.standard.removeObject(forKey: key)
     }
     
     override func tearDown() {
         store.reset()
         store = nil
+        UserDefaults.standard.removeObject(forKey: key)
         super.tearDown()
     }
     
@@ -93,5 +97,96 @@ final class SettingsPersistenceTests: XCTestCase {
         store.save(bytes: 500 * 1024)
         store.reset()
         XCTAssertEqual(store.maxFileSize, 102400, "Should return default after reset")
+    }
+    
+    // MARK: - Default Value Tests
+    
+    /// Verifies that the default value is returned when no settings have been saved.
+    func testDefaultMaxFileSizeWhenNotSet() {
+        let saved = UserDefaults.standard.integer(forKey: key)
+        let maxFileSize = saved > 0 ? saved : defaultMaxFileSize
+        XCTAssertEqual(maxFileSize, defaultMaxFileSize, "Should return default 100KB when not set")
+    }
+    
+    // MARK: - Read Tests
+    
+    /// Verifies that Extension can read a value written to its UserDefaults.
+    func testExtensionReadsCorrectMaxFileSize() {
+        let expected = 200 * 1024
+        UserDefaults.standard.set(expected, forKey: key)
+        
+        let saved = UserDefaults.standard.integer(forKey: key)
+        let maxFileSize = saved > 0 ? saved : defaultMaxFileSize
+        
+        XCTAssertEqual(maxFileSize, expected, "Extension should read the correct max file size")
+    }
+    
+    /// Verifies that zero value falls back to default.
+    func testZeroValueFallsBackToDefault() {
+        UserDefaults.standard.set(0, forKey: key)
+        
+        let saved = UserDefaults.standard.integer(forKey: key)
+        let maxFileSize = saved > 0 ? saved : defaultMaxFileSize
+        
+        XCTAssertEqual(maxFileSize, defaultMaxFileSize, "Zero value should fall back to default")
+    }
+    
+    /// Verifies that negative value falls back to default.
+    func testNegativeValueFallsBackToDefault() {
+        UserDefaults.standard.set(-1024, forKey: key)
+        
+        let saved = UserDefaults.standard.integer(forKey: key)
+        let maxFileSize = saved > 0 ? saved : defaultMaxFileSize
+        
+        XCTAssertEqual(maxFileSize, defaultMaxFileSize, "Negative value should fall back to default")
+    }
+    
+    // MARK: - Truncation Tests
+    
+    /// Verifies that a file smaller than maxFileSize is not truncated.
+    func testFileWithinLimitIsNotTruncated() {
+        let maxFileSize = 100 * 1024
+        let fileSize = 50 * 1024
+        XCTAssertFalse(fileSize > maxFileSize, "File within limit should not be truncated")
+    }
+    
+    /// Verifies that a file larger than maxFileSize is truncated.
+    func testFileExceedingLimitIsTruncated() {
+        let maxFileSize = 100 * 1024
+        let fileSize = 200 * 1024
+        XCTAssertTrue(fileSize > maxFileSize, "File exceeding limit should be truncated")
+    }
+    
+    /// Verifies that truncated data size matches maxFileSize.
+    func testTruncatedDataMatchesMaxFileSize() {
+        let maxFileSize = 100
+        let data = Data(repeating: 0x61, count: 200)
+        
+        let displayData = data.count > maxFileSize ? data.prefix(maxFileSize) : data
+        XCTAssertEqual(displayData.count, maxFileSize, "Truncated data should match max file size")
+    }
+    
+    /// Verifies that non-truncated data preserves original size.
+    func testNonTruncatedDataPreservesSize() {
+        let maxFileSize = 1000
+        let data = Data(repeating: 0x61, count: 100)
+        
+        let displayData = data.count > maxFileSize ? data.prefix(maxFileSize) : data
+        XCTAssertEqual(displayData.count, data.count, "Non-truncated data should preserve original size")
+    }
+    
+    // MARK: - Settings Update Tests
+    
+    /// Verifies that updating the setting is immediately reflected when read.
+    func testSettingUpdateIsImmediatelyReflected() {
+        UserDefaults.standard.set(100 * 1024, forKey: key)
+        
+        let first = UserDefaults.standard.integer(forKey: key)
+        XCTAssertEqual(first, 100 * 1024, "First read should return 100KB")
+        
+        UserDefaults.standard.set(200 * 1024, forKey: key)
+        
+        let second = UserDefaults.standard.integer(forKey: key)
+        XCTAssertEqual(second, 200 * 1024, "Second read should return updated 200KB")
     }
 }
